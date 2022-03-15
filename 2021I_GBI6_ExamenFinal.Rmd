@@ -77,16 +77,20 @@ Para comprender la data de esta evaluación se requiere conocer el significado d
 
 ### [0.5 PUNTOS] 1.1 Defina su directorio de trabajo. 
 ```{r wd}
-
+rm(list=ls())
+setwd("/Users/Antonella Ortiz/Documents/GitHub/GBI6_ExamenFinal")
+getwd()
 ```
 
 ### [0.5 PUNTOS] 1.2. Cargue la data "mRNA_expr.csv"
 ```{r data}
-df <- "cargue la data"
 
 ```
 
 ### [1 PUNTO] 1.3 Cree una función de nombre ```long_df``` para transformar la data ```df``` de la forma wide a long.
+```{r}
+
+```
 
 ```{r funcion_long}
 # Escriba aquí la función long_df
@@ -100,11 +104,13 @@ La tabla resultante tendrá tres columnas: ```dataset, gen, expresion_level```.
 ```{r df_long}
 # Genere la data df_long 
 
+
 ```
 
 ### [0.5 PUNTOS] 1.5 A partir de la data ```df_long```, genere un **Descriptive table** (librería ```sjPlot```) y guárdelo en el subdirectorio "result"  con el nombre **mRNA_expr_summary.doc** (previamente debe seleccionar las celdas adecuadas con funciones de la librería ```dplyr``` en conjunto con el operador ```%>%```). 
 ```{r desc_table}
 # Escriba el código para crear el Descriptive table 
+
 
 ```
 
@@ -126,7 +132,6 @@ Para esta pregunta tiene que utilizar la data ```df_long```.
 
 ```{r}
 # Escriba el código para crear la función tcga_boxplots
-
 
 ```
 
