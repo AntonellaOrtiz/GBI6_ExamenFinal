@@ -106,7 +106,7 @@ long_df <- df %>%
 La tabla resultante tendrá tres columnas: ```dataset, gen, expresion_level```.  
 ```{r df_long}
 # Genere la data df_long 
-
+df_long <- long_df[,-1]
 
 ```
 
