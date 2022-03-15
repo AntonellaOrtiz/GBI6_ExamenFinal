@@ -89,12 +89,14 @@ df <- read.csv("data/mRNA_expr.csv")
 ```
 
 ### [1 PUNTO] 1.3 Cree una función de nombre ```long_df``` para transformar la data ```df``` de la forma wide a long.
-```{r}
-
-```
 
 ```{r funcion_long}
+echo=FALSE
+knitr::opts_chunk$set(error = TRUE)
 # Escriba aquí la función long_df
+library(dplyr)
+long_df <- df %>% 
+  tidyr::pivot_longer(3:9, names_to = "gen", values_to = "expresion_level")
 
 
 ```
