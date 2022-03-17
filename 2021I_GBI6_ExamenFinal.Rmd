@@ -152,7 +152,16 @@ Para esta pregunta tiene que utilizar la data ```df_long```.
 
 ```{r}
 # Escriba el código para crear la función tcga_boxplots
+library(ggplot2)
 
+tcga_boxplots <- function(data){
+  filtro <- df_long %>% filter(dataset == data)
+  plot <- filtro %>% ggplot(aes(x = gen, y = expresion_level, color = gen )) + geom_boxplot() + geom_jitter(alpha=0.4, size = 0.5)}
+
+
+#verificar si la gráfica es igual a la de Alberto :)
+ejemplo <- tcga_boxplots("KIRP")
+ejemplo
 
 ```
 
