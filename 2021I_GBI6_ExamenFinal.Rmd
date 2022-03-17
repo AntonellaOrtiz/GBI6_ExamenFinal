@@ -97,6 +97,7 @@ knitr::opts_chunk$set(error = TRUE)
 library(dplyr)
 long_df <- df %>% 
   tidyr::pivot_longer(3:9, names_to = "gen", values_to = "expresion_level")
+long_df
 
 
 ```
@@ -107,21 +108,28 @@ La tabla resultante tendrá tres columnas: ```dataset, gen, expresion_level```.
 ```{r df_long}
 # Genere la data df_long 
 df_long <- long_df[,-1]
+df_long
 
 ```
 
 ### [0.5 PUNTOS] 1.5 A partir de la data ```df_long```, genere un **Descriptive table** (librería ```sjPlot```) y guárdelo en el subdirectorio "result"  con el nombre **mRNA_expr_summary.doc** (previamente debe seleccionar las celdas adecuadas con funciones de la librería ```dplyr``` en conjunto con el operador ```%>%```). 
 ```{r desc_table}
 # Escriba el código para crear el Descriptive table 
-
+library(sjPlot)
+library(sjmisc)
+df_long_group <- df_long %>% group_by (dataset, gen)
+descr(df_long_group, out = "viewer", encoding = "UTF-8", file = "results/mRNA_expr_summary.doc")
 
 ```
 
 ### [0.5 PUNTOS] 1.6 Interprete los resultados de la tabla resultante de la sección 1.5. 
 
-
 ```{tex}
 # Escriba aquí su interpretación 
+La tabla muestra los diferentes calores estadisticos para cada tipo de gen en cada tipo de cáncer
+
+BRCA: se observa la mayor nube de puntos entre los demás genes, esto debido a que existen muchos datos en este tipo de cáncer. Se puede observar como el nivel de expresión de los datos presentes en los genes GAPDH y PTEN tienen una distribución normal alrededor de la media por lo que los datos tienen una forma simétrica, además presentan una dispersion de puntuaciones pequeña con ciertos valores atípicos sobre y bajo la media. Por otro lado el nivel de expresión en los genes ESR1, FN1, GATA3, MUC1, XBP1 tienen una distribución anormal alrededor de la media por lo que los datos tienen una forma asimétrica, además presentan una dispersiónn de puntuaciones más gande (caja alargada) y en su mayoría con valores atípicos bajo la media
+
 
 ```
 
@@ -135,6 +143,16 @@ Para esta pregunta tiene que utilizar la data ```df_long```.
 
 ```{r}
 # Escriba el código para crear la función tcga_boxplots
+library(ggplot2)
+
+tcga_boxplots <- function(data){
+  filtro <- df_long %>% filter(dataset == data)
+  plot <- filtro %>% ggplot(aes(x = gen, y = expresion_level, color = gen )) + geom_boxplot() + geom_jitter(alpha=0.4, size = 0.5)}
+
+
+#verificar si la gráfica es igual a la de Alberto :)
+ejemplo <- tcga_boxplots("KIRP")
+ejemplo
 
 ```
 
