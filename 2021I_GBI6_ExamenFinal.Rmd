@@ -189,6 +189,17 @@ ggsave(filename = "results/boxplot3.png", dpi = 300)
 
 ```{r reg_gen_exp}
 # Escriba aquí su función reg_gen_expression
+#tcga_boxplots <- function(data){
+#  filtro <- df_long %>% filter(dataset == data)
+#  plot <- filtro %>% ggplot(aes(x = gen, y = expresion_level, color = gen )) + geom_boxplot() + geom_jitter(alpha=0.4, size = 0.5)}
+
+
+re_gen_expression <- function (gen){
+  f1 <- df_long %>% filter(gen == "GATA3")
+  f2 <- df_long %>%  filter(gen == "FN1")
+  f3 <- merge(x=f1, y=f2)
+  plot1 <- f3 %>%  ggplot(aes(x = gen1, y= gen2, color = gen)) + geom_point
+}
 
 
 ```
