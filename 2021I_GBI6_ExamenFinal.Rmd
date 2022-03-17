@@ -130,6 +130,15 @@ La tabla muestra los diferentes calores estadisticos para cada tipo de gen en ca
 
 BRCA: se observa la mayor nube de puntos entre los demás genes, esto debido a que existen muchos datos en este tipo de cáncer. Se puede observar como el nivel de expresión de los datos presentes en los genes GAPDH y PTEN tienen una distribución normal alrededor de la media por lo que los datos tienen una forma simétrica, además presentan una dispersion de puntuaciones pequeña con ciertos valores atípicos sobre y bajo la media. Por otro lado el nivel de expresión en los genes ESR1, FN1, GATA3, MUC1, XBP1 tienen una distribución anormal alrededor de la media por lo que los datos tienen una forma asimétrica, además presentan una dispersiónn de puntuaciones más gande (caja alargada) y en su mayoría con valores atípicos bajo la media
 
+KIPAN: en este tipo de cáncer se puede observar como el nivel de expresión de los datos presentes en todos los genes tienen una distribución anormal con forma asimétrica alrededor de la media. En el caso de los genes ESR1, FN1, GAPDH, GATA3 PTEN, XBP1 presentan  una distribucion de puntuaciones pequeñas (caja reducida) y ciertos valores atipicos, en comparacion al gen MUC1 que presenta dispersion de puntuaciones más grande y sin valores atipicos
+
+KIRP: presenta la menor nube de puntos entre los demás genes debido a una menor cantidad de datos para este tipo de gen. Todos los niveles de expresión de los genes tienen una ditribución  anormal y de forma asimétrica alrededor de la media, además todos muestran valores atípicos extremos es decir muy lejos de  En el caso de los genes ESR1, FN1, GATA3, PTEN presentan una distribucion de puntuaciones pequeña (caja reducida) y en el caso de los genes GAPDG, MUC1, XBP1 al contrario presentan dispersion de puntuaciones más grande (caja alargada)
+
+LUSC:  en este tipo de cáncer se puede observar como el nivel de expresión de los datos presentes en los genes GAPDH y PTEN sigue una distribución normal alrededor de la media por lo que los datos tienen una forma simétrica, además presentan una dispersion de puntuaciones pequeña con ciertos valores atípicos sobre y bajo la media. Por otro lado el nivel de expresión en los genes ESR1, FN1, GATA3, MUC1, XBP1 tienen una distribución anormal alrededor de la media por lo que los datos tienen una forma asimétrica y con ciertos valores asimétricos extremos
+
+OV: en este tipo de cancer se observa una gran nube de puntos, pues existem muchos datos. En el caso de los datos presenten en GAPDH , GATA3 y PTEN siguen una distribución normal y simétrica alrededor de la media, mientras que en el caso de ESR1, FN1, MUC1 y XBP1 siguen una distribucion anormal asimpetrica alrededor de la media. Además, todos los genes presentan ciertos valores atípicos extremos con respecto a los demas datos
+
+UCEC: en este tipo de cancer se puede observar como el nivel de expresión de los datos presentes solo en el gen MUC1 siguen una distribución normal simétrica y con una dispersión de puntuaciones intermedia, mientras que los datos presentes en los genes restantes siguen una distribución anormal asimeétrica alrededor de la media. Se puede observar como el gen ESR1 es el que presenta una mayor dispersión de puntuaciones y por esa razón su caja es la más alargada. Además, se pueden observar ciertos valores atipicos frente a los demás datos
 
 ```
 
@@ -143,16 +152,7 @@ Para esta pregunta tiene que utilizar la data ```df_long```.
 
 ```{r}
 # Escriba el código para crear la función tcga_boxplots
-library(ggplot2)
 
-tcga_boxplots <- function(data){
-  filtro <- df_long %>% filter(dataset == data)
-  plot <- filtro %>% ggplot(aes(x = gen, y = expresion_level, color = gen )) + geom_boxplot() + geom_jitter(alpha=0.4, size = 0.5)}
-
-
-#verificar si la gráfica es igual a la de Alberto :)
-ejemplo <- tcga_boxplots("KIRP")
-ejemplo
 
 ```
 
