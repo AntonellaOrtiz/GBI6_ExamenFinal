@@ -208,8 +208,10 @@ reg_gen_expression <- function(cancer){
 ```{r list_regplots}
 # Escriba el código para generar la lista. 
 
-
-
+cm1 <- unique(df_long$gen)
+cm2 <- combn(cm1,m=2,simplify = FALSE)
+reg_genplots <- lapply(cm2,reg_gen_expression)
+reg_genplots[[11]]
 
 ```
 
