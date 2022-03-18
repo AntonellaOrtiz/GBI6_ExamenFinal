@@ -232,6 +232,12 @@ ggsave(filename = "results/regresion11.pdf", dpi = 300)
 ```{tex}
 # Esciba aquí su intepretación
 
+Boxplot3
+- Carcinoma renal de celulas papilares (KIRP): presenta la menor nube de puntos entre los demás genes debido a una menor cantidad de datos para este tipo de gen. Todos los niveles de expresión de los genes tienen una ditribución  anormal y de forma asimétrica alrededor de la media, además todos muestran valores atípicos extremos es decir muy lejos de  En el caso de los genes ESR1, FN1, GATA3, PTEN presentan una distribucion de puntuaciones pequeña (caja reducida) y en el caso de los genes GAPDH, MUC1, XBP1 al contrario presentan dispersion de puntuaciones más grande (caja alargada)
+
+Regresion11
+- Se osberva como la regresion para el tipo de cancer BRCA (carcinoma invasivo de mama), UCEC (carcinoma de endometrio del cuerpo uterino), LUSC (carcinoma de celulas escamosas del pulmón) y KIRP (carcinomal renal de celulas papilares renales) presentan una relacion inversamente proporcional entre los genes PTEN y GADPH, a diferencia del tipo de cancer KIPAN (cohorte pan-riñon) y OV (cistoadenocarcinoma seroso de ovoario) que presentan una relacion directamente proporcional. Además se observa como los niveles de expresion de los genes PTEN y GAPDH se concentran en un punto en específico, aunque tambien se puede observar algunos valores lejanos al centro. 
+
 ```
 
 ## 3. CONTROL DE LA VERSIÓN [1 PUNTO]. Se verficará en ell repositorio de GitHub. 
