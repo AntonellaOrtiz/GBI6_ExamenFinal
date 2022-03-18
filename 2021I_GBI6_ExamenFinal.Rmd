@@ -188,17 +188,16 @@ ggsave(filename = "results/boxplot3.png", dpi = 300)
 ### [1 PUNTO] 2.4 Escriba la función ```reg_gen_expression```, con el parámetro ```gen```. En este caso la función visualizará una gráfica de nube de puntos (geom_point) y una regresión por tipo de "dataset". La gráfica será de comparación de gen1 con gen2; por ejemplo en el eje "x" ```GATA3``` y en el eje "y"" ```FN1```.  
 
 ```{r reg_gen_exp}
-# Escriba aquí su función reg_gen_expression
-#tcga_boxplots <- function(data){
-#  filtro <- df_long %>% filter(dataset == data)
-#  plot <- filtro %>% ggplot(aes(x = gen, y = expresion_level, color = gen )) + geom_boxplot() + geom_jitter(alpha=0.4, size = 0.5)}
+# Escriba aquí su función 
 
-
-re_gen_expression <- function (gen){
-  f1 <- df_long %>% filter(gen == "GATA3")
-  f2 <- df_long %>%  filter(gen == "FN1")
-  f3 <- merge(x=f1, y=f2)
-  plot1 <- f3 %>%  ggplot(aes(x = gen1, y= gen2, color = gen)) + geom_point
+reg_gen_expression <- function(cancer){
+  genx=cancer[1]
+  geny=cancer[2]
+  a <- df_long %>% filter (gen == genx)
+  n <- df_long %>% filter (gen == geny)
+  t <- cbind(a,n)
+  o <- tibble("dataset"=t[,1],"gen1"=t[,3],"gen2"=t[,6])
+  m <- o %>% ggplot(aes(x = gen1, y = gen2, color=dataset)) + geom_point() + geom_smooth(method=lm, se=FALSE)
 }
 
 
@@ -209,12 +208,16 @@ re_gen_expression <- function (gen){
 ```{r list_regplots}
 # Escriba el código para generar la lista. 
 
+
+
+
 ```
 
 
 ### [0.5 PUNTOS] 2.6. Guarde en el subdirectorio ```result``` el onceavo plot de la lista ```reg_genplots``` con el nombre ```regresion11.pdf```. La definición de a figura debe ser de 300dpi. 
 ```{r reg11}
 # Escriba el código para guardar el onceavo plot. 
+
 
 ```
 
