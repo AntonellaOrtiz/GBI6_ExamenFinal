@@ -220,6 +220,9 @@ reg_genplots[[11]]
 ```{r reg11}
 # Escriba el código para guardar el onceavo plot. 
 
+plot11 <- reg_genplots[11]
+ggsave(filename = "results/regresion11.pdf", dpi = 300)
+
 
 ```
 
